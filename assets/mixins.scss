@@ -1,0 +1,16 @@
+@mixin text($color,$size,$space,$bold){
+    color:$color;
+    font-size: $size;
+    letter-spacing: $space;
+    transition: all 1s ease;
+    font-weight: $bold;
+    font-family: 'Poppins', sans-serif;
+}
+@mixin button ($color,$bg,$fontSize){
+    color:$color;
+    font-size: $fontSize;
+    background-color: $bg;
+    padding:14px 36px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
