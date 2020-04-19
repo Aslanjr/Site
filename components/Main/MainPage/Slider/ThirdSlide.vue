@@ -2,25 +2,21 @@
     <div class="FirstSlide">
         <div class="conainer-fuild">
             <div class="row  d-flex">
-                <div class="col-lg-12 FirstSlide__item text-right">
-                    <h1 class="FirstSlide__item__title">sense of <br> sophistication</h1>
+                <div class="col-lg-12 mt-5 FirstSlide__item text-center">
+                    <h1 class="FirstSlide__item__title">a summer breeze</h1>
                     <p class="line"></p>
-                    <p class="FirstSlide__item__text">
-                        Alienum phaedrum torquatos nec eu, vis detraxit ortssa
-                        periculiser ex, <br> nihil expetendis in mein redsal ubunt. 
-                    </p>
                     <button class="button">subscribe</button>
                 </div>
                 <div class="col-lg-12 FirstSlide__item__controls d-flex justify-content-between">
-                    <div class="FirstSlide__item__left d-flex justify-content-center" @click="Slide(3)">
+                    <div class="FirstSlide__item__left d-flex justify-content-center" @click="Slide(2)">
                         <div class="arrow d-flex flex-column justify-content-center align-items-center">
                             <div></div>
                             <div></div>
                         </div>
-                        03
-                    </div>
-                    <div class="FirstSlide__item__right d-flex" @click="Slide(2)">
                         02
+                    </div>
+                    <div class="FirstSlide__item__right d-flex " @click="Slide(1)">
+                        01
                         <div class="arrow d-flex flex-column justify-content-center align-items-center">
                             <div></div>
                             <div></div>
@@ -41,21 +37,21 @@ export default {
     },
     methods: {
         Slide(value){
-            if(value == 3){
+            if(value == 2){
                 this.$parent.$emit('slide',value);
-            }else if( value == 2){
+            }else if( value == 1){
                 this.$parent.$emit('slide',value);
             }else{
                 console.log('error');
             }
         }
-    },    
+    },     
 }
 </script>
 <style lang="scss" scoped>
 @import '../../../../assets/mixins.scss';
     .FirstSlide{
-        @include Slide('https://bazaar.qodeinteractive.com/wp-content/uploads/2017/07/h1-slider2-background-img.jpg');
+        @include Slide('https://bazaar.qodeinteractive.com/wp-content/uploads/2017/07/h1-slider3-background-img.jpg');
         .FirstSlide__item__controls{
             position: absolute;
             top:50%;
@@ -108,9 +104,9 @@ export default {
             
         }
         .FirstSlide__item{
+            animation: ShowUp 1.8s ease;
             padding: 0% 15%;
             position: absolute;
-            animation: ShowUp 1.8s ease;
             top:30%;
             left:0%;
             .FirstSlide__item__title{
@@ -127,7 +123,7 @@ export default {
         @keyframes ShowUp {
             0%{
                 opacity: 0;
-                transform: translateY(250px);
+                transform: translateY(-60px);
             }
             100%{
                 opacity: 1;

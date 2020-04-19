@@ -14,3 +14,20 @@
     border: none;
     font-family: 'Poppins', sans-serif;
 }
+@mixin arrow ($origin){
+    height: 15px;
+    width: 2px;
+    background: #000;
+    transition: all .35s ease;
+    transform-origin: $origin;
+}
+@mixin Slide($Img){
+    position: absolute;
+    top:0%;
+    left:0%;
+    height:100%;
+    width: 100%;
+    background:url($Img);
+    background-attachment: fixed;
+    background-position: center center;
+}

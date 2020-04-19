@@ -34,13 +34,23 @@
         </div>
       </div>
       <section>
-        <FirstSlide/>
+        <transition name="SwitchLeft">
+          <FirstSlide  class="fb" v-if="first" />
+        </transition>
+        <transition name="SwitchRight">
+        <SecondSlide class="sc" v-if="sec" />
+        </transition>
+        <transition name="SwitchLeft">
+        <ThirdSlide  class="th" v-if="third"  />
+        </transition>
       </section>
   </div>
 </template>
 <script>
 import axios from 'axios'
-import FirstSlide from './MainPage/Slider/FirstSlide'
+import FirstSlide  from './MainPage/Slider/FirstSlide'
+import SecondSlide from './MainPage/Slider/SecondSlide'
+import ThirdSlide  from './MainPage/Slider/ThirdSlide'
 
 export default {
   name:'LogForm',
@@ -49,12 +59,39 @@ export default {
       homedrop:false,
       pagedrop:false,
       blogdrop:false,
+      first:true,
+      sec:false,
+      third:false,
     }
   },
   components:{
-    FirstSlide
+    FirstSlide,
+    SecondSlide,
+    ThirdSlide
+  },
+  mounted() {
+    this.$on('slide', function(value){
+        switch(value){
+          case 1:
+            this.first = true;
+            this.sec = false;
+            this.third = false;
+            break;
+          case 2:
+            this.first = false;
+            this.sec = true;
+            this.third = false;
+            break;
+          case 3:
+            this.first = false;
+            this.sec = false;
+            this.third = true;
+            break;
+        }
+      })
   },
   methods: {
+      
     show(value){
       switch(value){
         case 'Home':
@@ -151,6 +188,7 @@ export default {
       transform: scaleY(1);
     }
   }
+  
   .Menu__content{
     list-style: none;
     color:#000;
