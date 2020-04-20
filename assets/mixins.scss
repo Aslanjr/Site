@@ -27,11 +27,11 @@
     left:0%;
     height:100%;
     width: 100%;
-    background:url($Img);
+    background:url($Img)no-repeat;
     background-attachment: fixed;
     background-position: center center;
 }
 @mixin title(){
     font-family: 'Cormorant Upright', serif;
-    
+
 }

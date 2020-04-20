@@ -176,7 +176,6 @@ export default {
 <style lang="scss" scoped>
 
 @import '../../assets/mixins.scss';
-
   .Header{
     padding:1% 4%;
     height:100vh;
