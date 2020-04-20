@@ -1,15 +1,18 @@
 <template>
     <div>
-      <app-logo/>
+      <Header/>
+      <Products/>
     </div>
 </template>
 
 <script>
-import AppLogo from '../components/Main/Header'
+import Header   from '../components/Main/Header'
+import Products from '../components/Main/MainPage/Products'
 
 export default {
   components: {
-    AppLogo
+    Header,
+    Products
   }
 }
 </script>

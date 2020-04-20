@@ -12,7 +12,8 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: "stylesheet", type: "text/css", href: "https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" },
-      { rel: "stylesheet", type: "text/css", href: "https://fonts.googleapis.com/css2?family=Poppins&display=swap" }
+      { rel: "stylesheet", type: "text/css", href: "https://fonts.googleapis.com/css2?family=Poppins&display=swap" },
+      { rel: "stylesheet", type: "text/css", href: "https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@600&display=swap" }
     ]
   },
   /*

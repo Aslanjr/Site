@@ -35,13 +35,13 @@
       </div>
       <section>
         <transition name="SwitchLeft">
-          <FirstSlide  class="fb" v-if="first" />
+          <FirstSlide  class="fb" :style="firstSlide" v-if="first" />
         </transition>
         <transition name="SwitchRight">
-        <SecondSlide class="sc" v-if="sec" />
+        <SecondSlide class="sc" :style="secondSlide" v-if="sec" />
         </transition>
         <transition name="SwitchLeft">
-        <ThirdSlide  class="th" v-if="third"  />
+        <ThirdSlide  class="th" :style="thirdSlide" v-if="third"  />
         </transition>
       </section>
   </div>
@@ -62,6 +62,9 @@ export default {
       first:true,
       sec:false,
       third:false,
+      FirstIdx:1,
+      SecondIdx:1,
+      ThirdIdx:1,
     }
   },
   components:{
@@ -73,19 +76,34 @@ export default {
     this.$on('slide', function(value){
         switch(value){
           case 1:
+            //Show
             this.first = true;
             this.sec = false;
             this.third = false;
+             //z-index
+            this.FirstIdx = 2,
+            this.SecondIdx = 1,
+            this.ThirdIdx = 1
             break;
           case 2:
+             //Show
             this.first = false;
             this.sec = true;
             this.third = false;
+             //z-index
+            this.SecondIdx = 2,
+            this.FirstIdx = 1,
+            this.ThirdIdx = 1
             break;
           case 3:
+             //Show
             this.first = false;
             this.sec = false;
             this.third = true;
+             //z-index
+            this.ThirdIdx = 3,
+            this.FirstIdx = 1,
+            this.SecondIdx = 1
             break;
         }
       })
@@ -126,6 +144,15 @@ export default {
     }
   },
   computed: {
+    firstSlide(){
+      return `z-index:${this.FirstIdx}`;
+    },
+    secondSlide(){
+      return `z-index:${this.SecondIdx}`;
+    },
+    thirdSlide(){
+      return `z-index:${this.ThirdIdx}`;
+    },
     // eslint-disable-next-line vue/return-in-computed-property
     MenuList(){
       return this.$store.state.Header.Menu
@@ -153,10 +180,11 @@ export default {
   .Header{
     padding:1% 4%;
     height:100vh;
+    z-index: 6;
     transition: all 1s ease;
     .Header__content{
       position: relative;
-      z-index: 2;
+      z-index: 5;
     }
   }
   .dropdown{
@@ -188,7 +216,36 @@ export default {
       transform: scaleY(1);
     }
   }
-  
+  .SwitchLeft-enter-active{
+    animation: ShowLeft 1s ease;
+  }
+  .SwitchRight-enter-active{
+    animation: ShowRight 1s ease;
+  }
+  @keyframes ShowLeft {
+    0%{
+      transform: translate(1920px);
+    }
+    100%{
+      transform: translateX(0);
+    }
+  }
+  @keyframes Close {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+  @keyframes ShowRight {
+    0%{
+      transform: translate(-1920px);
+    }
+    100%{
+      transform: translateX(0);
+    }
+  }
   .Menu__content{
     list-style: none;
     color:#000;
