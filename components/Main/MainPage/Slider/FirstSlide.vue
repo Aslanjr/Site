@@ -4,7 +4,9 @@
             <div class="row  d-flex">
                 <div class="col-lg-12 FirstSlide__item text-right">
                     <h1 class="FirstSlide__item__title">sense of <br> sophistication</h1>
-                    <p class="line"></p>
+                    <div class="d-flex justify-content-end">
+                        <p class="line"></p>
+                    </div>
                     <p class="FirstSlide__item__text">
                         Alienum phaedrum torquatos nec eu, vis detraxit ortssa
                         periculiser ex, <br> nihil expetendis in mein redsal ubunt. 
@@ -106,6 +108,9 @@ export default {
                 }
             }
             
+        }
+        .line{
+            @include line(7px,120px,35px);
         }
         .FirstSlide__item{
             padding: 0% 15%;

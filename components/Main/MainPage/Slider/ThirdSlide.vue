@@ -4,7 +4,9 @@
             <div class="row  d-flex">
                 <div class="col-lg-12 mt-5 FirstSlide__item text-center">
                     <h1 class="FirstSlide__item__title">a summer breeze</h1>
-                    <p class="line"></p>
+                    <div class="d-flex justify-content-center">
+                        <p class="line"></p>
+                    </div>
                     <button class="button">subscribe</button>
                 </div>
                 <div class="col-lg-12 FirstSlide__item__controls d-flex justify-content-between">
@@ -102,6 +104,9 @@ export default {
                 }
             }
             
+        }
+        .line{
+            @include line(7px,120px,35px);
         }
         .FirstSlide__item{
             animation: ShowUp 1.8s ease;

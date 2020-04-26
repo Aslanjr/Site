@@ -27,11 +27,21 @@
     left:0%;
     height:100%;
     width: 100%;
-    background:url($Img)no-repeat;
     background-attachment: fixed;
     background-position: center center;
+    background-image:url($Img);
+    background-repeat: no-repeat;
 }
-@mixin title(){
-    font-family: 'Cormorant Upright', serif;
-
+@mixin line($H,$W,$M){
+    height:$H;
+    width:$W;
+    background:#000;
+    margin:$M 0px;
+}
+@mixin title($size,$color){
+    font-size: $size;
+    font-family: 'Cormorant Upright',serif;
+    letter-spacing: 0.1em;
+    font-style: italic;
+    color:$color;
 }

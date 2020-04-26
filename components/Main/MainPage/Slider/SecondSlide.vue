@@ -4,7 +4,9 @@
             <div class="row  d-flex">
                 <div class="col-lg-12 mt-5 FirstSlide__item text-left">
                     <h1 class="FirstSlide__item__title">perfect <br> time to shop</h1>
-                    <p class="line"></p>
+                    <div class="d-flex justify-content-start">
+                        <p class="line"></p>
+                    </div>
                     <p class="FirstSlide__item__text">
                         Alienum phaedrum torquatos nec eu, vis detraxit ortssa
                         periculiser ex, <br> nihil expetendis in mein redsal ubunt. 
@@ -106,6 +108,9 @@ export default {
                 }
             }
             
+        }
+        .line{
+            @include line(7px,120px,35px);
         }
         .FirstSlide__item{
             animation: ShowUp 1.8s ease;
