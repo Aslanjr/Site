@@ -9,12 +9,12 @@
                         </p>
                     </div>
                     <div class="Comments__controls d-flex justify-content-between ">
-                        <img src="https://image.flaticon.com/icons/svg/860/860790.svg" class="Comments__controls__img" height="24" alt="">
-                        <img src="https://image.flaticon.com/icons/svg/318/318429.svg" class="Comments__controls__img" height="24" alt="">
+                        <img src="https://image.flaticon.com/icons/svg/860/860790.svg" class="Comments__controls__img" @click="SlideLeft" height="24" alt="">
+                        <img src="https://image.flaticon.com/icons/svg/318/318429.svg" class="Comments__controls__img" @click="SlideRight" height="24" alt="">
                     </div>
                     <div class="Comments__Slider d-flex text-center ">
-                        <FirstSlide v-if="FirstSlide" />
-                        <SecondSlide v-if="SecondSlide" />
+                        <FirstSlide class="Comments__Slider__item" v-if="FirstSlide" />
+                        <SecondSlide class="Comments__Slider__item" v-if="SecondSlide" />
                     </div>
                 </div>
             </div>
@@ -31,15 +31,30 @@ export default {
     data(){
         return{
             FirstSlide:true,
-            SecondSlide:false
+            SecondSlide:false,
+            current:1,
         }
     },
     methods: {
         SlideRight(){
-
+            if(this.current % 2 == 0){
+                this.FirstSlide = true;
+                this.SecondSlide = false;
+            }else{
+                this.FirstSlide = false;
+                this.SecondSlide = true;
+            }
+            this.current++;
         },
         SlideLeft(){
-            
+            if(this.current % 2 == 0){
+                this.FirstSlide = true;
+                this.SecondSlide = false;
+            }else{
+                this.FirstSlide = false;
+                this.SecondSlide = true;
+            }
+            this.current++;
         }
     },
     components:{
@@ -52,7 +67,8 @@ export default {
 @import '../../../../assets/mixins.scss';
 
     .Comments{
-        padding:3% 15%;
+        background-color: #FAFAFA;
+        padding:5% 15%;
         &__title{
             @include text(#000,35px,0.03em,600);
         }
